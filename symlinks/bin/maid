@@ -1,0 +1,2 @@
+#!/bin/bash
+maid clean --force --silent

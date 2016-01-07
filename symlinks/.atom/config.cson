@@ -1,0 +1,28 @@
+"*":
+  editor:
+    invisibles: {}
+    fontSize: 11
+    confirmCheckoutHeadRevision: false
+    fontFamily: "Monoid"
+    softWrap: true
+  core:
+    disabledPackages: [
+    ]
+    projectHome: "/Users/yenbekbay/Dropbox/Projects"
+    themes: [
+      "nucleus-dark-ui"
+      "adventurous-syntax"
+    ]
+  welcome:
+    showOnStartup: false
+  "file-icons":
+    coloured: false
+  "graphite-ui":
+    syntaxThemeColoring: true
+  "filetype-color":
+    enabled: "false"
+  "linter-stylint":
+    runWithStrictMode: true
+  "symbols-tree-view":
+    scrollAnimation: false
+    autoHide: true
