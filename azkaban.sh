@@ -9,9 +9,10 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Install Alcatraz.
-curl -fsSL https://raw.github.com/alcatraz/Alcatraz/master/Scripts/install.sh | sh
+curl -fsSL https://raw.github.com/alcatraz/Alcatraz/mastelor/Scripts/install.sh | sh
 # Install Azkaban.
 brew install neonichu/formulae/azkaban
+brew cleanup
 
 # Install Azkaban packages.
 azkaban install BBUncrustifyPlugin

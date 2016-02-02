@@ -8,15 +8,9 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Generate a new public key.
-ssh-keygen -t rsa
-echo "Add this public key to Github \n"
-echo "https://github.com/account/ssh \n"
-read -p "Press [Enter] key after this..."
-
-# Installing Xcode command line tools.
-gem install xcode-install
-xcversion install-cli-tools
+# Install Xcode command line tools.
+xcode-select --install
+read -p "Press [Enter] key when Xcode command line tools are installed..."
 
 # Copy dotfiles from Github.
 cd ~
@@ -29,6 +23,7 @@ source brew.sh
 # Install gems and PyPI packages.
 gem install tugboat
 gem install maid
+gem install xcode-install
 pip install thefuck
 pip install pylint
 
@@ -45,6 +40,12 @@ chsh -s /usr/local/bin/zsh
 # Configure git.
 git config --global user.name "Ayan Yenbekbay"
 git config --global user.email ayan.yenb@gmail.com
+
+# Generate a new public key.
+ssh-keygen -t rsa
+echo "Add this public key to Github \n"
+echo "https://github.com/account/ssh \n"
+read -p "Press [Enter] key after this..."
 
 # Start maid launch daemon.
 launchctl load ~/Library/LaunchAgents/me.yenbekbay.maid.plist

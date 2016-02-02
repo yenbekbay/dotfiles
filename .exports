@@ -12,6 +12,7 @@ PATH=${PATH}:~/dotfiles/misc
 PATH=${PATH}:~/dotfiles/bin
 PATH=${PATH}:~/.composer/vendor/bin
 PATH=${PATH}:~/go/bin
+PATH=${PATH}:/Applications/MATLAB_R2015b.app/bin
 
 export PATH=${PATH}
 export GOPATH="$HOME/go"
@@ -25,6 +26,3 @@ export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"; # Make some commands not 
 export LANG="en_US.UTF-8";
 export LC_ALL="en_US.UTF-8";
 export MANPAGER="less -X";
-export XCODE_INSTALL_USER="ayan.yenb@me.com"
-export XCODE_INSTALL_PASSWORD=""
-export GITHUB_TOKEN=""

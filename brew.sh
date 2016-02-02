@@ -45,10 +45,18 @@ brew install legit
 brew install tig
 brew install hub
 
-# Install Node.js, Python, and rbenv.
+# Install Node.js, Python, pyenv, rbenv, and swiftenv.
 brew install node
 brew install python
+brew install pyenv
 brew install rbenv ruby-build
+rbenv install 2.3.0
+rbenv global 2.3.0
+rbenv rehash
+brew install kylef/formulae/swiftenv
+swiftenv install swift-2.2-SNAPSHOT-2016-01-06-a
+swiftenv global swift-2.2-SNAPSHOT-2016-01-06-a
+swiftenv rehash
 
 # Install essential binaries.
 brew install the_silver_searcher
@@ -83,14 +91,13 @@ apps=(
  dropbox
  droplr
  flux
- google-chrome
  google-photos-backup
- helium
  hyperdock
  imageoptim
  intellij-idea
  itsycal
  messenger
+ mojibar
  mplayerx
  noizio
  postico
