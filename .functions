@@ -15,7 +15,7 @@ cp_p() {
 
 # open a file in Chrome
 chrome() {
-	open $@ --args --allow-file-access-from-files
+  open $@ --args --allow-file-access-from-files
 }
 
 # go up N directories https://github.com/anishathalye/dotfiles/commit/c7256407e27263abc21bed2667a81373fa958d25#diff-1f7e07657816dcfba81e81892df0eac7R30
@@ -54,18 +54,18 @@ transfer() {
 
 # create an is.gd short URL
 shorten() {
-	isgd $1 | pbcopy
-	echo "Copied to the clipboard"
+  isgd $1 | pbcopy
+  echo "Copied to the clipboard"
 }
 
 # display used commands sorted by their usage
 commands() {
-	history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
+  history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
 }
 
 # search entries on commandlinefu.com
 cmdfu() {
-	curl "http://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | openssl base64)/plaintext";
+  curl "http://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | openssl base64)/plaintext";
 }
 
 faces() {
@@ -86,24 +86,29 @@ faces() {
 
 # pretend being busy
 busy() {
-	cat /dev/urandom | hexdump -C | grep "ca fe"
+  cat /dev/urandom | hexdump -C | grep "ca fe"
 }
 
 # show the screensaver
 saver() {
-	sudo open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
+  sudo open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
 }
 
 # show a random command line tip
 tip() {
-	wget -q --tries=10 --timeout=20 --spider http://github.com
-	if [[ $? -eq 0 ]]; then
-		curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
-	 	pandoc -f markdown -t html |
-	 	xml fo --html --dropdtd |
-	 	xml sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
-	 	xml unesc | fmt -80
-	fi
+  wget -q --tries=10 --timeout=20 --spider http://github.com
+  if [[ $? -eq 0 ]]; then
+    curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
+      pandoc -f markdown -t html |
+      xml fo --html --dropdtd |
+      xml sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
+      xml unesc | fmt -80
+  fi
+}
+
+# a simple calculator
+function = {
+  echo "$@" | bc -l
 }
 
 powerline_precmd() {

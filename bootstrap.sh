@@ -20,15 +20,18 @@ cd ~/dotfiles
 # Install Homebrew command-line tools and apps.
 source brew.sh
 
+# Install npm packages.
+source npm.sh
+
 # Install gems and PyPI packages.
 gem install tugboat
 gem install maid
 pip install thefuck
 pip install pylint
+pip install glances
 
-# Install npm packages.
-npm install jshint
-npm install stylint
+# Install emojify
+sudo sh -c "curl https://raw.githubusercontent.com/mrowa44/emojify/master/emojify -o /usr/local/bin/emojify && chmod +x /usr/local/bin/emojify"
 
 # Synchronize symlinks.
 set -- -f; source sync.sh

@@ -64,6 +64,9 @@ brew install tree
 brew install wget
 brew install trash
 brew install zsh
+brew install httpie
+brew install jq
+brew install fzf
 command -v zsh | sudo tee -a /etc/shells
 
 # Install iOS and OSX development tools.
@@ -96,6 +99,7 @@ apps=(
  imageoptim
  intellij-idea
  itsycal
+ karabiner
  messenger
  mojibar
  mplayerx

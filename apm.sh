@@ -18,7 +18,7 @@ apm install color-picker
 apm install file-icons
 apm install linter
 apm install linter-gcc
-apm install linter-jshint
+apm install linter-eslint
 apm install linter-stylint
 apm install linter-pylint
 apm install merge-conflicts
