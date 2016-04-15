@@ -11,21 +11,21 @@ Maid.rules do
 	end
 
 	#
-	# Update all our Applications, brew, oh my zsh and such
+	# Update all our applications, brew, zgen and such
 	#
-	rule 'Updating Brew' do
+	rule 'Updating brew' do
 		`brew update`
 	end
-	rule 'Updating Brews' do
+	rule 'Updating brews' do
 		`brew upgrade --all`
 	end
-	rule 'Cleaning Brew' do
+	rule 'Cleaning brew' do
 		`brew cleanup`
 	end
-	rule 'Cleaning Brew Cask' do
+	rule 'Cleaning brew cask' do
 		`brew cask cleanup`
 	end
-	rule 'Updating Cask Applications' do
+	rule 'Updating cask applications' do
 		`brew cask update`
 	end
 	rule 'Updating dotfiles submodules' do
@@ -38,11 +38,11 @@ Maid.rules do
 	#
 	# Downloads Folder Stuff
 	#
-	rule 'Trash incomplete downloads' do
+	rule 'Trashing incomplete downloads' do
 		trash dir('~/Downloads/*.download').select { |p| 3.days.since modified_at p }
 	end
 
-	rule 'Trash zips and tarballs downloaded from GitHub' do
+	rule 'Trashing zips and tarballs downloaded from GitHub' do
 		dir('~/Downloads/*.{zip,tgz,gz,rar,tar}').each do |path|
 			if downloaded_from(path).any? { |u| u.match %r{//([^\/]+\.)?github\.com\/} }
 				trash path

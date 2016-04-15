@@ -7,7 +7,7 @@
  <string>me.yenbekbay.maid</string>
  <key>ProgramArguments</key>
  <array>
- <string>/usr/local/bin/maid</string>
+ <string>/usr/local/bin/run-maid</string>
  </array>
  <key>RunAtLoad</key>
  <true/>
