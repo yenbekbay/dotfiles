@@ -1,7 +1,6 @@
 alias lss="ls -Gal"
 alias lp="ls -p"
 
-alias hosts="$EDITOR /etc/hosts"
 alias e="$EDITOR ."
 alias ql="qlmanage -p"
 alias disk="du -hs *"
@@ -17,9 +16,6 @@ alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/La
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'";
 
 alias ip="curl ipinfo.io/ip"
-alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-alias wifi="networksetup -getairportpower en0 | grep 'On' && networksetup -setairportpower en0 off || networksetup -setairportpower en0 on"
-alias server="python -m SimpleHTTPServer"
 
 alias ll1="tree --dirsfirst -ChFL 1"
 alias ll2="tree --dirsfirst -ChFL 2"
@@ -28,11 +24,6 @@ alias ll4="tree --dirsfirst -ChFupDaL 1"
 alias ll5="tree --dirsfirst -ChFupDaL 2"
 alias ll6="tree --dirsfirst -ChFupDaL 3"
 
-alias gist="gist -ec $1"
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
-alias exot=exit
 alias rm=trash
-alias ack=ag
 alias tailf="less +F $0"
-
-alias oldsnapshot="snapshot _0.10.2_"

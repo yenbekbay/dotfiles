@@ -33,11 +33,6 @@ up() {
   fi
 }
 
-# diff to prod
-prod_diff() {
-  git diff prod $@
-}
-
 # run `git pull` on every directory within the current directory
 gitupdateall() {
   find . -type d -print -maxdepth 1 -execdir git --git-dir={}/.git --work-tree=$PWD/{} pull \;
@@ -50,60 +45,6 @@ transfer() {
   curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile
   cat $tmpfile
   rm -f $tmpfile
-}
-
-# create an is.gd short URL
-shorten() {
-  isgd $1 | pbcopy
-  echo "Copied to the clipboard"
-}
-
-# display used commands sorted by their usage
-commands() {
-  history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
-}
-
-# search entries on commandlinefu.com
-cmdfu() {
-  curl "http://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | openssl base64)/plaintext";
-}
-
-faces() {
-  faces=('ಠ_ಠ' 'ಠ_ರೃ' '﴾͡๏̯͡๏﴿' '๏_๏' 'ಠ▃ಠ' '(•‿•)' 'Ծ_Ծ' '¯\(°_o)/¯' '(✌ﾟ∀ﾟ)☞' '╚(•⌂•)╝' 't(-_-t)t' '(ツ)_/¯' '◔_◔' '◎⃝ _◎⃝' ';ლ(ಠ_ಠლ)' '(╯°□°）╯︵ ┻━┻' 'ᶘ ᵒᴥᵒᶅ')
-
-  if [[ -z $1 ]]; then
-    echo 'Choose a face and | it to pbcopy'
-    i=1
-    for f in ${faces[@]}
-    do
-      echo $i $f
-      i=`expr $i + 1`
-    done
-  else
-    echo ${faces[$1]}
-  fi
-}
-
-# pretend being busy
-busy() {
-  cat /dev/urandom | hexdump -C | grep "ca fe"
-}
-
-# show the screensaver
-saver() {
-  sudo open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
-}
-
-# show a random command line tip
-tip() {
-  wget -q --tries=10 --timeout=20 --spider http://github.com
-  if [[ $? -eq 0 ]]; then
-    curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
-      pandoc -f markdown -t html |
-      xml fo --html --dropdtd |
-      xml sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
-      xml unesc | fmt -80
-  fi
 }
 
 # a simple calculator
