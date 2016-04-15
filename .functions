@@ -52,10 +52,10 @@ function = {
   echo "$@" | bc -l
 }
 
+# powerline installation
 powerline_precmd() {
-  PS1="$(~/powerline-shell.py $? --shell zsh 2> /dev/null)"
+  PS1="$(~/dotfiles/powerline-shell.py $? --shell zsh 2> /dev/null)"
 }
-
 install_powerline_precmd() {
   for s in "${precmd_functions[@]}"; do
     if [ "$s" = "powerline_precmd" ]; then
