@@ -15,15 +15,13 @@ brew install neonichu/formulae/azkaban
 brew cleanup
 
 # Install Azkaban packages.
-azkaban install BBUncrustifyPlugin
+azkaban install FuzzyAutocomplete
 azkaban install DBSmartPanels
 azkaban install Luft
 azkaban install VVDocumenter-Xcode
 azkaban install XCActionBar
-azkaban install XcodeColors
-azkaban install KSImageNamed
-azkaban install OMQuickHelp
 azkaban install FixCode
+azkaban install SwiftLintXcode
 
 # Install Azkaban themes.
 azkaban install "Space Gray"
