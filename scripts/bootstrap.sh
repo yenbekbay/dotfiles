@@ -122,9 +122,7 @@ $karabiner set remap.launcher_mode_v2 1
 $karabiner set remap.launch_itunes_by_play_button_twice 1
 
 # Copy dotfiles from Github.
-cd ~
-git clone --recursive https://github.com/yenbekbay/dotfiles.git dotfiles
-cd ~/dotfiles
+git clone --recursive https://github.com/yenbekbay/dotfiles.git ~/.dotfiles
 
 # Synchronize symlinks.
 set -- -f; source sync.sh

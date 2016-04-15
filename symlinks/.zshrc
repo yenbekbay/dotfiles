@@ -8,10 +8,10 @@ unsetopt NOMATCH
 setopt APPEND_HISTORY
 setopt INTERACTIVE_COMMENTS
 
-source ~/dotfiles/zgen/zgen.zsh
-source ~/dotfiles/.aliases
-source ~/dotfiles/.functions
-source ~/dotfiles/.exports
+source ~/.dotfiles/zgen/zgen.zsh
+source ~/.dotfiles/.aliases
+source ~/.dotfiles/.functions
+source ~/.dotfiles/.exports
 
 if ! zgen saved; then
   zgen oh-my-zsh

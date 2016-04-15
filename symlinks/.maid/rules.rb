@@ -29,7 +29,7 @@ Maid.rules do
 		`brew cask update`
 	end
 	rule 'Updating dotfiles submodules' do
-		`cd ~/dotfiles && gitupdateall`
+		`cd ~/.dotfiles && gitupdateall`
 	end
 	rule 'Updating gems ' do
 		`sudo gem update`

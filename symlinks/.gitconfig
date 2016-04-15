@@ -54,7 +54,6 @@
    a = add
    s = status
    c = commit
-   d = !sh ~/dotfiles/bin/git-diff
    diff = diff --word-diff
    dc = diff --cached
    aa= !git add -u && git add . && git status
@@ -66,14 +65,6 @@
    st = status -sb
    gg = log --oneline --abbrev-commit --all --graph --decorate --color
    unstage = reset HEAD --
-   switch = !legit switch \"$@\"
-   branches = !legit branches
-   sprout = !legit sprout \"$@\"
-   unpublish = !legit unpublish \"$@\"
-   harvest = !legit harvest \"$@\"
-   sync = !legit sync \"$@\"
-   publish = !legit publish \"$@\"
-   graft = !legit graft \"$@\"
 
    go = checkout -B
 

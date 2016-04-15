@@ -505,7 +505,7 @@ tell application "Terminal"
   local allOpenedWindows
   local initialOpenedWindows
   local windowID
-  set themeName to "Solarized Dark xterm-256color"
+  set themeName to "solarized-dark"
   (* Store the IDs of all the open terminal windows. *)
   set initialOpenedWindows to id of every window
   (* Open the custom theme so that it gets added to the list
