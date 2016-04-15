@@ -66,6 +66,10 @@ gem install xcode-install
 pip install thefuck
 pip install pylint
 pip install glances
+npm install -g npm-check
+npm install -g trymodule
+npm install -g peerflix
+npm install -g torrentflix
 npm install -g eslint
 npm install -g yo
 npm install -g hexo
