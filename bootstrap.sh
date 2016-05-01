@@ -64,29 +64,29 @@ ln -s ~/.dotfiles/powerline-config.py ~/.dotfiles/powerline-shell/config.py
 
 # Install system utilities
 brew install the_silver_searcher
+brew install trash
 brew install tree
 brew install wget
-brew install trash
 pip install glances
 
 # Install general development tools
 gem install bundler
-pip install pylint
+npm install -g eslint
 npm install -g npm-check
 npm install -g trymodule
-npm install -g eslint
-npm install -h yo
+npm install -g yo
+pip install pylint
 
 # Install iOS and OSX development tools
-brew install thoughtbot/formulae/liftoff
-brew install keith/formulae/cocoapods
 brew install carthage
-brew install swiftlint
 brew install jondot/tap/blade
-gem install xcode-install
+brew install keith/formulae/cocoapods
+brew install swiftlint
+brew install thoughtbot/formulae/liftoff
+gem install cocoapods-playgrounds
 gem install fastlane
 gem install synx
-gem install cocoapods-playgrounds
+gem install xcode-install
 
 # Install web development tools
 brew install heroku-toolbelt
@@ -94,7 +94,7 @@ brew install httpie
 npm install -g hexo
 npm install -g surge
 
-# Install other
+# Install other packages
 brew install transfer
 npm install -g peerflix
 npm install -g torrentflix
@@ -108,8 +108,8 @@ brew cask install flux
 brew cask install hyperdock
 brew cask install qlcolorcode
 brew cask install qlmarkdown
-brew cask install suspicious-package
 brew cask install qlstephen
+brew cask install suspicious-package
 
 # Install development apps
 brew cask install atom
@@ -120,15 +120,15 @@ brew cask install postico
 brew cask install sourcetree
 
 # Install productivity apps
-brew cask install shiori
 brew cask install dropbox
 brew cask install droplr
+brew cask install shiori
 
 # Install communication apps
-brew cask install slack
-brew cask install telegram
 brew cask install franz
 brew cask install skype
+brew cask install slack
+brew cask install telegram
 
 # Install media apps
 brew cask install soundcleod
