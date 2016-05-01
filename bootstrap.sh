@@ -28,6 +28,7 @@ brew install git git-extras
 
 # Copy dotfiles from Github
 git clone --recursive https://github.com/yenbekbay/dotfiles.git ~/.dotfiles
+git clone https://github.com/b4b4r07/zplug ~/.zplug
 
 # Install zsh
 brew install zsh
