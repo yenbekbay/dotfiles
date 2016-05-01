@@ -1,0 +1,115 @@
+DEFAULT_USER="yenbekbay"
+COMPLETION_WAITING_DOTS="true"
+DISABLE_AUTO_UPDATE=true
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
+
+unsetopt NOMATCH
+setopt APPEND_HISTORY
+setopt INTERACTIVE_COMMENTS
+
+source ~/.dotfiles/zgen/zgen.zsh
+
+# Set up oh-my-zsh with zgen
+if ! zgen saved; then
+  zgen oh-my-zsh
+
+  zgen oh-my-zsh plugins/osx
+  zgen oh-my-zsh plugins/brew
+  zgen oh-my-zsh plugins/brew-cask
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/git-extras
+  zgen oh-my-zsh plugins/bundler
+  zgen oh-my-zsh plugins/gem
+  zgen oh-my-zsh plugins/httpie
+  zgen oh-my-zsh plugins/node
+  zgen oh-my-zsh plugins/npm
+  zgen oh-my-zsh plugins/pip
+  zgen oh-my-zsh plugins/pod
+  zgen oh-my-zsh plugins/python
+  zgen oh-my-zsh plugins/ruby
+  zgen oh-my-zsh plugins/heroku
+  zgen oh-my-zsh plugins/z
+
+  zgen load zsh-users/zsh-syntax-highlighting
+  zgen load zsh-users/zsh-completions src
+  zgen load supercrabtree/k
+
+  zgen save
+fi
+
+# Export paths for nvm and go
+export NVM_DIR="$HOME/.nvm"
+export GOPATH="$HOME/.go"
+
+# Set default options for homebrew cask
+export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/Caskroom"
+
+# Make atom the default editor
+export EDITOR="atom";
+
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8'
+
+# Increase Bash history size to 32³ entries from the default 500
+export HISTSIZE='32768'
+export HISTFILESIZE="${HISTSIZE}"
+# Omit duplicates and commands that begin with a space from history
+export HISTCONTROL='ignoreboth'
+
+# Prefer US English and use UTF-8
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
+
+# Highlight section titles in manual pages
+export LESS_TERMCAP_md="${yellow}"
+
+# Don’t clear the screen after quitting a manual page
+export MANPAGER='less -X'
+
+# Unix aliases
+alias e="$EDITOR"
+alias mkdir="mkdir -p"
+
+# Mac OS X aliases
+alias unhidelibrary="chflags nohidden ~/Library"
+alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
+
+# Replacements
+alias ls="k -h"
+alias lss="ls -ah"
+alias rm=trash
+
+# Pretty print the path
+alias path='echo $PATH | tr -s ":" "\n"'
+
+# Other aliases
+alias dotfiles="zgen reset && rcup -v -d ~/.dotfiles/symlinks && source ~/.zshrc"
+alias ip="curl ipinfo.io/ip"
+
+# Activate pyenv
+eval "$(pyenv init -)"
+
+# Activate rbenv
+eval "$(rbenv init -)"
+
+# Activate nvm
+source $(brew --prefix nvm)/nvm.sh
+
+# Activate powerline
+powerline_precmd() {
+  PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $? --shell zsh 2> /dev/null)"
+}
+install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+
+  precmd_functions+=(powerline_precmd)
+}
+install_powerline_precmd
