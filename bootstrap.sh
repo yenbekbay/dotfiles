@@ -40,7 +40,6 @@ brew install thoughtbot/formulae/rcm
 rcup -v -d ~/.dotfiles/symlinks
 
 # Copy binaries, launch agents, and fonts
-rsync -av --no-perms ~/.dotfiles/launch-agents/ ~/Library/LaunchAgents
 rsync -av --no-perms ~/.dotfiles/fonts/ ~/Library/Fonts
 
 # Configure python environment
