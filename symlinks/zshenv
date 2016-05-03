@@ -1,11 +1,18 @@
+export PATH="$PATH:$HOME/.bin"
+
 # Specify nvm directory
 export NVM_DIR="$HOME/.nvm"
 
 # Set default options for homebrew cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/Caskroom"
 
-# Make atom the default editor
-export EDITOR="atom";
+# Set fzf default options
+export FZF_DEFAULT_OPTS='-m'
+
+# Make vim the default editor
+export EDITOR=vim
+export GIT_EDITOR="${EDITOR}"
+export VISUAL="${EDITOR}"
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr
 export PYTHONIOENCODING='UTF-8'
@@ -13,8 +20,11 @@ export PYTHONIOENCODING='UTF-8'
 # Increase Bash history size to 32³ entries from the default 500
 export HISTSIZE='32768'
 export HISTFILESIZE="${HISTSIZE}"
+export SAVEHIST="${HISTSIZE}"
 # Omit duplicates and commands that begin with a space from history
-export HISTCONTROL='ignoreboth'
+export HISTCONTROL="ignoreboth"
+# Set history file
+export HISTFILE="$HOME/.zsh_history"
 
 # Prefer US English and use UTF-8
 export LANG='en_US.UTF-8'
@@ -25,3 +35,6 @@ export LESS_TERMCAP_md="${yellow}"
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER='less -X'
+
+# Set default fzf options (https://github.com/junegunn/fzf)
+export FZF_DEFAULT_OPTS="--extended --ansi --multi"

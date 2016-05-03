@@ -5,28 +5,34 @@ PATH=${PATH}:$HOME/.rbenv/bin
 export PATH=${PATH}
 export NVM_DIR="$HOME/.nvm"
 
-echo "** Updating brew"
-brew update
+wget -q --spider http://google.com
 
-echo "** Updating brew packages"
-brew upgrade --all
+if [ $? -eq 0 ]; then
+  echo "** Updating brew"
+  brew update
 
-echo "** Updating brew apps"
-brew cask update
+  echo "** Updating brew packages"
+  brew upgrade --all
 
-echo "** Cleaning up brew cellar"
-brew cleanup
-brew cask cleanup
+  echo "** Updating brew apps"
+  brew cask update
 
-echo "** Updating dotfiles submodules"
-(cd ~/.dotfiles && git submodule foreach git pull origin master)
+  echo "** Cleaning up brew cellar"
+  brew cleanup
+  brew cask cleanup
 
-echo "** Updating gems"
-eval "$(rbenv init -)"
-gem update
+  echo "** Updating dotfiles submodules"
+  (cd ~/.dotfiles && git submodule foreach git pull origin master)
 
-echo "** Updating global npm packages"
-source $(brew --prefix nvm)/nvm.sh
-npm update -g
+  echo "** Updating gems"
+  eval "$(rbenv init -)"
+  gem update
 
-echo ""
+  echo "** Updating global npm packages"
+  source $(brew --prefix nvm)/nvm.sh
+  npm update -g
+
+  echo ""
+else
+  echo "No internet connection"
+fi

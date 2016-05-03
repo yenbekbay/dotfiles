@@ -23,6 +23,9 @@ brew update
 # Upgrade any already-installed formulae
 brew upgrade --all
 
+# Install Cmake for building from source
+brew install cmake
+
 # Install git
 brew install git git-extras
 
@@ -62,6 +65,14 @@ nvm install node
 # Configure powerline-shell
 ln -s ~/.dotfiles/powerline-config.py ~/.dotfiles/powerline-shell/config.py
 (cd ~/.dotfiles/powerline-shell && python install.py)
+
+# Configure vim
+brew install vim
+mkdir ~/.vim/autoload
+ln -s ~/.dotfiles/vim-plug/plug.vim ~/.vim/autoload/plug.vim
+
+# Install tmux
+brew install tmux
 
 # Install system utilities
 brew install the_silver_searcher
@@ -122,8 +133,10 @@ brew cask install sourcetree
 
 # Install productivity apps
 brew cask install dropbox
-brew cask install droplr
+brew cask install jumpshare
+brew cask install rescuetime
 brew cask install shiori
+brew cask install stand
 
 # Install communication apps
 brew cask install franz
@@ -132,8 +145,8 @@ brew cask install slack
 brew cask install telegram
 
 # Install media apps
-brew cask install soundcleod
-brew cask install spek
+brew cask install cumulus
+brew cask install plug
 brew cask install vlc
 
 # Install other apps
@@ -163,7 +176,7 @@ cat > ~/Library/LaunchAgents/me.yenbekbay.update.plist <<EOF
     <array>
       <string>sh</string>
       <string>-c</string>
-      <string>$HOME/.dotfiles/update.sh | while IFS= read -r line; do printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "\$line"; done</string>
+      <string>$HOME/.dotfiles/update.sh | while IFS= read -r line; do printf '[%s] %s\n' "\$(date '+%Y-%m-%d %H:%M:%S')" "\$line"; done</string>
     </array>
     <key>RunAtLoad</key>
     <true/>

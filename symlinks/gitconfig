@@ -4,7 +4,7 @@
    github = yenbekbay
 
 [core]
-   editor = atom
+   editor = vim
    excludesfile = ~/.gitignore_global
 
    # Enable parallel I/O for operations like "git diff".
@@ -82,9 +82,3 @@
 [difftool "chdiff"]
    cmd = chdiff "$LOCAL" "$REMOTE"
    trustExitCode = true
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.1/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
