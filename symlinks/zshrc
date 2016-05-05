@@ -5,29 +5,6 @@ DISABLE_AUTO_UPDATE=true
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 
-# Unix aliases
-alias e="$EDITOR"
-alias mkdir="mkdir -p"
-
-# Mac OS X aliases
-alias unhidelibrary="chflags nohidden ~/Library"
-alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
-
-# Replacements
-alias ls="k -h"
-alias lss="ls -ah"
-alias rm=trash
-
-# Pretty print the path
-alias path='echo $PATH | tr -s ":" "\n"'
-
-# Other aliases
-alias dotfiles="rcup -v -d ~/.dotfiles/symlinks"
-alias ip="curl ipinfo.io/ip"
-
 # Do not record an event that was just recorded again
 setopt hist_ignore_dups
 
@@ -99,7 +76,6 @@ zplug "plugins/ruby", from:oh-my-zsh
 zplug "plugins/z", from:oh-my-zsh
 
 # Remote plugins
-zplug "atweiden/fzf-extras", use:"*.{zsh,sh}"
 zplug "supercrabtree/k"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-history-substring-search"
@@ -127,4 +103,32 @@ eval "$(rbenv init -)"
 source $(brew --prefix nvm)/nvm.sh
 
 # Activate fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.fzf.zsh
+
+# Unix aliases
+alias e="$EDITOR"
+alias mkdir="mkdir -p"
+
+# Mac OS X aliases
+alias unhidelibrary="chflags nohidden ~/Library"
+alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
+
+# Replacements
+alias ls="k -h"
+alias lss="ls -ah"
+alias rm=trash
+unalias z 2> /dev/null
+z() {
+  [ $# -gt 0 ] && _z "$*" && return
+  cd "$(_z -l 2>&1 | fzf-tmux +s --tac --query "$*" | sed 's/^[0-9,.]* *//')"
+}
+
+# Pretty print the path
+alias path='echo $PATH | tr -s ":" "\n"'
+
+# Other aliases
+alias dotfiles="rcup -v -d ~/.dotfiles/symlinks"
+alias ip="curl ipinfo.io/ip"

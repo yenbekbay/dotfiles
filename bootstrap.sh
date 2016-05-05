@@ -29,10 +29,6 @@ brew install cmake
 # Install git
 brew install git git-extras
 
-# Copy dotfiles from Github
-git clone --recursive https://github.com/yenbekbay/dotfiles.git ~/.dotfiles
-git clone https://github.com/b4b4r07/zplug ~/.zplug
-
 # Install zsh
 brew install zsh
 sudo chsh -s $(which zsh)
@@ -40,11 +36,17 @@ sudo chsh -s $(which zsh)
 # Install rcm
 brew install thoughtbot/formulae/rcm
 
+# Clone dotfiles from Github
+git clone --recursive https://github.com/yenbekbay/dotfiles.git ~/.dotfiles
+
 # Synchronize symlinks
 rcup -v -d ~/.dotfiles/symlinks
 
-# Copy binaries, launch agents, and fonts
+# Copy fonts
 rsync -av --no-perms ~/.dotfiles/fonts/ ~/Library/Fonts
+
+# Clone zplug
+git clone https://github.com/b4b4r07/zplug ~/.zplug
 
 # Configure python environment
 brew install pyenv

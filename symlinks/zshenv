@@ -6,11 +6,6 @@ export NVM_DIR="$HOME/.nvm"
 # Set default options for homebrew cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/Caskroom"
 
-# Set fzf default options
-export FZF_DEFAULT_OPTS='-m'
-export FZF_DEFAULT_COMMAND='ag -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 # Make vim the default editor
 export EDITOR=vim
 export GIT_EDITOR="${EDITOR}"
@@ -39,4 +34,6 @@ export LESS_TERMCAP_md="${yellow}"
 export MANPAGER='less -X'
 
 # Set default fzf options (https://github.com/junegunn/fzf)
-export FZF_DEFAULT_OPTS="--extended --ansi --multi"
+export FZF_DEFAULT_OPTS='-m'
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
