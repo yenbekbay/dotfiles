@@ -8,6 +8,8 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/
 
 # Set fzf default options
 export FZF_DEFAULT_OPTS='-m'
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Make vim the default editor
 export EDITOR=vim
