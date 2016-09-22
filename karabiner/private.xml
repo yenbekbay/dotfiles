@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<root>
+  <replacementdef>
+    <replacementname>APP_LAUNCHER_KEY</replacementname>
+    <replacementvalue>KeyCode::O</replacementvalue>
+  </replacementdef>
+
+  <modifierdef>APP_LAUNCHER</modifierdef>
+
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Chrome</name>
+    <url type="file">
+      /Applications/Google Chrome.app
+    </url>
+  </vkopenurldef>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Atom</name>
+    <url type="file">
+      /Applications/Atom.app
+    </url>
+  </vkopenurldef>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Slack</name>
+    <url type="file">
+      /Applications/Slack.app
+    </url>
+  </vkopenurldef>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_iTerm</name>
+    <url type="file">
+      /Applications/iTerm.app
+    </url>
+  </vkopenurldef>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Deckset</name>
+    <url type="file">
+      /Applications/Deckset.app
+    </url>
+  </vkopenurldef>
+
+  <item>
+    <name>Application Launchers</name>
+
+    <item>
+      <name>Application Launchers</name>
+      <appendix>Open apps by shortcut keys.</appendix>
+      <appendix>* Chrome: O+S key</appendix>
+      <appendix>* Atom: O+A key</appendix>
+      <appendix>* Slack: O+S key</appendix>
+      <appendix>* iTerm: O+T key</appendix>
+      <appendix>* Xcode: O+X key</appendix>
+      <appendix>* Mail: O+M key</appendix>
+      <appendix>* Finder: O+F key</appendix>
+      <appendix>* Open Desktop by Finder: O+F,D key</appendix>
+      <appendix>* Open the home folder by Finder: O+F,F (press F twice)</appendix>
+
+      <identifier>remap.application_launchers</identifier>
+
+      <pressingphysicalkeys_lessthan>2</pressingphysicalkeys_lessthan>
+      <modifier_not>
+        ModifierFlag::COMMAND_L,
+        ModifierFlag::COMMAND_R,
+        ModifierFlag::CONTROL_L,
+        ModifierFlag::CONTROL_R,
+        ModifierFlag::FN,
+        ModifierFlag::OPTION_L,
+        ModifierFlag::OPTION_R,
+        ModifierFlag::SHIFT_L,
+        ModifierFlag::SHIFT_R,
+      </modifier_not>
+
+      <autogen>
+        __KeyOverlaidModifier__
+        {{ APP_LAUNCHER_KEY }},
+
+        @begin
+        KeyCode::VK_CONFIG_SYNC_KEYDOWNUP_notsave_application_launchers, ModifierFlag::APP_LAUNCHER,
+        @end
+
+        @begin
+        {{ APP_LAUNCHER_KEY }},
+        @end
+      </autogen>
+    </item>
+
+    <item hidden="true">
+      <identifier vk_config="true">notsave.application_launchers</identifier>
+
+      <autogen>
+        __BlockUntilKeyUp__ {{ APP_LAUNCHER_KEY }}
+      </autogen>
+
+      <autogen>__KeyDownUpToKey__ KeyCode::C, KeyCode::VK_OPEN_URL_APP_Chrome</autogen>
+      <autogen>__KeyDownUpToKey__ KeyCode::A, KeyCode::VK_OPEN_URL_APP_Atom</autogen>
+      <autogen>__KeyDownUpToKey__ KeyCode::S, KeyCode::VK_OPEN_URL_APP_Slack</autogen>
+      <autogen>__KeyDownUpToKey__ KeyCode::T, KeyCode::VK_OPEN_URL_APP_iTerm</autogen>
+      <autogen>__KeyDownUpToKey__ KeyCode::D, KeyCode::VK_OPEN_URL_APP_Deckset</autogen>
+      <autogen>__KeyDownUpToKey__ KeyCode::X, KeyCode::VK_OPEN_URL_APP_Xcode</autogen>
+      <autogen>__KeyDownUpToKey__ KeyCode::M, KeyCode::VK_OPEN_URL_APP_Mail</autogen>
+      <autogen>
+        __KeyToKey__
+        KeyCode::F,
+        KeyCode::VK_NONE,
+
+        Option::KEYTOKEY_DELAYED_ACTION,
+        KeyCode::VK_OPEN_URL_APP_Finder,
+
+        Option::KEYTOKEY_DELAYED_ACTION_CANCELED_BY, KeyCode::D,
+        KeyCode::VK_OPEN_URL_FILE_Desktop,
+        KeyCode::VK_KEYTOKEY_DELAYED_ACTION_DROP_EVENT,
+
+        Option::KEYTOKEY_DELAYED_ACTION_CANCELED_BY, KeyCode::F,
+        KeyCode::VK_OPEN_URL_FILE_Home,
+        KeyCode::VK_KEYTOKEY_DELAYED_ACTION_DROP_EVENT,
+      </autogen>
+
+      <autogen>
+        __DropAllKeys__
+        ModifierFlag::APP_LAUNCHER,
+
+        Option::DROPALLKEYS_DROP_KEY,
+      </autogen>
+    </item>
+
+  </item>
+</root>
