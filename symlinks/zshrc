@@ -99,9 +99,6 @@ eval "$(pyenv init -)"
 # Activate ruby environment
 eval "$(rbenv init -)"
 
-# Activate node environment
-source $(brew --prefix nvm)/nvm.sh
-
 # Activate fzf
 source ~/.fzf.zsh
 
@@ -132,3 +129,4 @@ alias path='echo $PATH | tr -s ":" "\n"'
 # Other aliases
 alias dotfiles="rcup -v -d ~/.dotfiles/symlinks"
 alias ip="curl ipinfo.io/ip"
+alias n="PROJECT_NAME='' n"

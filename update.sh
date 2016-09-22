@@ -3,7 +3,6 @@
 PATH=${PATH}:/usr/local/bin
 PATH=${PATH}:$HOME/.rbenv/bin
 export PATH=${PATH}
-export NVM_DIR="$HOME/.nvm"
 
 wget -q --spider http://google.com
 
@@ -29,7 +28,6 @@ if [ $? -eq 0 ]; then
   gem update
 
   echo "** Updating global npm packages"
-  source $(brew --prefix nvm)/nvm.sh
   npm update -g
 
   echo ""

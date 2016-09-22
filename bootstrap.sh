@@ -61,8 +61,8 @@ rbenv global 2.3.1
 rbenv rehash
 
 # Configure node environment
-brew install nvm
-nvm install node
+curl -fsSL http://git.io/n-install | sh
+n latest
 
 # Configure powerline-shell
 ln -s ~/.dotfiles/powerline-config.py ~/.dotfiles/powerline-shell/config.py
