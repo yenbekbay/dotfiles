@@ -1,9 +1,7 @@
-# Zsh configuration
+# zsh configuration
 DEFAULT_USER="yenbekbay"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_AUTO_UPDATE=true
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 
 # Do not record an event that was just recorded again
 setopt hist_ignore_dups
@@ -88,6 +86,10 @@ fi
 
 # Source installed plugins
 zplug load
+
+# zsh-syntax-highlighting configuration
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 
 # Bind up and down keys for zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
