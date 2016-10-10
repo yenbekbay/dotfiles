@@ -84,8 +84,8 @@ brew install wget
 pip install glances
 
 # Install general development tools
+brew install httpie
 gem install bundler
-npm install -g eslint
 npm install -g npm-check
 npm install -g trymodule
 npm install -g yo
@@ -102,54 +102,51 @@ gem install fastlane
 gem install synx
 gem install xcode-install
 
-# Install web development tools
-brew install heroku-toolbelt
-brew install httpie
-npm install -g hexo
-npm install -g surge
-
-# Install other packages
-brew install transfer
-npm install -g peerflix
-npm install -g torrentflix
-
 # Install cask
-brew install caskroom/cask/brew-cask
+brew tap caskroom/cask
 sudo chflags hidden /opt
 
-# Install system apps
+# Install utility apps
+brew cask install appcleaner
 brew cask install flux
 brew cask install hyperdock
+brew cask install licecap
+brew cask install macclean
 brew cask install qlcolorcode
 brew cask install qlmarkdown
 brew cask install qlstephen
+brew cask install quitter
 brew cask install suspicious-package
 
 # Install development apps
+brew cask install docker
+brew cask install docker-toolbox
+brew cask install hyper
 brew cask install imageoptim
 brew cask install medis
+brew cask install mongodb
 brew cask install mongohub
 brew cask install postico
+brew cask install postman
 brew cask install sourcetree
 brew cask install visual-studio-code
 
 # Install productivity apps
+brew cask install itsycal
 brew cask install dropbox
-brew cask install jumpshare
 brew cask install rescuetime
 brew cask install shiori
-brew cask install stand
 
 # Install communication apps
-brew cask install franz
+brew cask install messenger
+brew cask install whatsapp
 brew cask install skype
 brew cask install slack
 brew cask install telegram
 
 # Install media apps
-brew cask install cumulus
-brew cask install plug
 brew cask install vlc
+brew cask install webtorrent
 
 # Install other apps
 brew cask install google-photos-backup
