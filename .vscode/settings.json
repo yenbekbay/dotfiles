@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "tmux.conf": "shellscript",
+    "zsh{env,rc}": "shellscript"
+  }
+}
