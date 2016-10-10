@@ -126,12 +126,12 @@ brew cask install qlstephen
 brew cask install suspicious-package
 
 # Install development apps
-brew cask install atom
 brew cask install imageoptim
 brew cask install medis
 brew cask install mongohub
 brew cask install postico
 brew cask install sourcetree
+brew cask install visual-studio-code
 
 # Install productivity apps
 brew cask install dropbox
