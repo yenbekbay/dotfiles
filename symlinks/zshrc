@@ -50,7 +50,7 @@ setopt bang_hist
 setopt prompt_subst
 
 # Initialize zplug
-source ~/.zplug/init.zsh
+source ~/.dotfiles/zplug/init.zsh
 
 # Local plugins
 zplug "~/.zsh", from:local, use:"*.zsh"

@@ -45,9 +45,6 @@ rcup -v -d ~/.dotfiles/symlinks
 # Copy fonts
 rsync -av --no-perms ~/.dotfiles/fonts/ ~/Library/Fonts
 
-# Clone zplug
-git clone https://github.com/b4b4r07/zplug ~/.zplug
-
 # Configure python environment
 brew install pyenv
 pyenv install 3.5.1
