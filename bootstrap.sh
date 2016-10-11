@@ -47,8 +47,8 @@ rsync -av --no-perms ~/.dotfiles/fonts/ ~/Library/Fonts
 
 # Configure python environment
 brew install pyenv
-pyenv install 3.5.1
-pyenv global 3.5.1
+pyenv install 3.5.2
+pyenv global 3.5.2
 pyenv rehash
 
 # Configure ruby environment
