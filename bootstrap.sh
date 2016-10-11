@@ -81,7 +81,9 @@ brew install wget
 pip install glances
 
 # Install general development tools
+brew install asciinema
 brew install httpie
+brew install watchman
 gem install bundler
 npm install -g npm-check
 npm install -g trymodule
