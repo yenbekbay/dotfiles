@@ -21,7 +21,7 @@ fi
 brew update
 
 # Upgrade any already-installed formulae
-brew upgrade --all
+brew upgrade
 
 # Install Cmake for building from source
 brew install cmake
@@ -101,8 +101,7 @@ gem install fastlane
 gem install synx
 gem install xcode-install
 
-# Install cask
-brew tap caskroom/cask
+# Set up cask
 sudo chflags hidden /opt
 
 # Install mas
