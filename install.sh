@@ -10,7 +10,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 yes y | sh <(curl -fsSL https://raw.githubusercontent.com/anvilabs/dotfiles/master/install.sh)
 
 # Clone local dotfiles from Github
-git clone --recursive https://github.com/yenbekbay/dotfiles.git ~/.dotfiles-local
+git clone https://github.com/yenbekbay/dotfiles.git ~/.dotfiles-local
 
 # Synchronize symlinks
 rcup -v -d ~/.dotfiles-local/symlinks
