@@ -9,6 +9,12 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Run the main dotfiles installation script
 yes y | sh <(curl -fsSL https://raw.githubusercontent.com/anvilabs/dotfiles/master/install.sh)
 
+# Clone local dotfiles from Github
+git clone --recursive https://github.com/yenbekbay/dotfiles.git ~/.dotfiles-local
+
+# Synchronize symlinks
+rcup -v -d ~/.dotfiles-local/symlinks
+
 # Install Cmake for building from source
 brew install cmake
 
@@ -51,10 +57,10 @@ gem install synx
 gem install xcode-install
 
 # Install apps with brew cask and mas
-source ~/apps.sh
+source ~/.dotfiles-local/apps.sh
 
 # Install vscode extensions
-source ~/vscode.sh
+source ~/.dotfiles-local/vscode.sh
 
 # Remove outdated versions from the cellar
 brew cleanup
