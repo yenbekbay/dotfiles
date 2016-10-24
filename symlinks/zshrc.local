@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+# zsh configuration
+DEFAULT_USER="yenbekbay"
