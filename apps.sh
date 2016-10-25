@@ -7,7 +7,7 @@ brew install mas
 brew cask install appcleaner
 brew cask install flux
 brew cask install hyperdock
-brew cask install licecap
+brew cask install kap
 brew cask install macclean
 brew cask install qlcolorcode
 brew cask install qlmarkdown
