@@ -1,3 +1,4 @@
 #!/usr/bin/env zsh
 
 export PATH="$PATH:$HOME/.yarn/bin"
+export ZSH_TMUX_AUTOSTART=true
