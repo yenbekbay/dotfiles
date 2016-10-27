@@ -1,0 +1,2 @@
+DOTFILES_DIRS="$HOME/.dotfiles/symlinks $HOME/.dotfiles-local/symlinks"
+COPY_ALWAYS="gitconfig.local"
