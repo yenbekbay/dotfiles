@@ -24,9 +24,6 @@ brew install git-extras
 # Install keybase and gpg for signatures
 brew install keybase gnupg2
 
-# Install yarn as a replacement for npm
-brew install yarn
-
 # Install system utilities
 brew install tree
 brew install wget
