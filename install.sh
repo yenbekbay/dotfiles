@@ -42,15 +42,15 @@ yarn global add trymodule
 yarn global add yo
 pip install pylint
 
-# Install iOS and OSX development tools
-brew install carthage
-brew install jondot/tap/blade
-brew install keith/formulae/cocoapods
-brew install swiftlint
-brew install thoughtbot/formulae/liftoff
-gem install cocoapods-playgrounds
-gem install fastlane
-gem install synx
+# Install iOS and macOS development tools
+# brew install carthage
+# brew install jondot/tap/blade
+# brew install keith/formulae/cocoapods
+# brew install swiftlint
+# brew install thoughtbot/formulae/liftoff
+# gem install cocoapods-playgrounds
+# gem install fastlane
+# gem install synx
 gem install xcode-install
 
 # Install apps with brew cask and mas
