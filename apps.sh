@@ -3,6 +3,9 @@
 # Install mas
 brew install mas
 
+# Sign into the Mac App Store
+mas signin ayan.yenb@me.com
+
 # Install utility apps
 brew cask install appcleaner
 brew cask install flux
