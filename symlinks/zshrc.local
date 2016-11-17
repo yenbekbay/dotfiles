@@ -2,3 +2,6 @@
 
 # zsh configuration
 DEFAULT_USER="yenbekbay"
+
+# Synchronize base and local dotfiles
+alias syncdotfiles="RCRC=$HOME/.rcrc.local rcup -v"
