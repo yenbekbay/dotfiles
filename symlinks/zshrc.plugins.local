@@ -1,6 +1,6 @@
 #!/bin/sh
 
-BASE16_SCHEME="ocean"
+BASE16_SCHEME="tomorrow-night"
 
 # Oh-my-zsh plugins
 zplug "plugins/git-extras", from:oh-my-zsh
