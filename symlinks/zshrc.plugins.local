@@ -4,11 +4,11 @@ BASE16_SCHEME="ocean"
 
 # Oh-my-zsh plugins
 zplug "plugins/git-extras", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh, nice:10
+zplug "plugins/git", from:oh-my-zsh, defer:2
 zplug "plugins/tmux", from:oh-my-zsh
 
 # Remote plugins
-zplug "chriskempson/base16-shell", use:"scripts/base16-$BASE16_SCHEME.sh", nice:-19
+zplug "chriskempson/base16-shell", use:"scripts/base16-$BASE16_SCHEME.sh", defer:0
 zplug "chriskempson/base16-shell", use:colortest, as:command
 zplug "peterhurford/up.zsh"
 zplug "unixorn/docker-helpers.zshplugin"
