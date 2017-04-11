@@ -16,7 +16,6 @@ brew cask install qlcolorcode
 brew cask install qlmarkdown
 brew cask install qlstephen
 brew cask install quitter
-brew cask install suspicious-package
 mas install 437151949 # Entropy
 mas install 937984704 # Amphetamine
 mas install 1082170746 # Aware
@@ -32,7 +31,9 @@ brew cask install mongodb
 brew cask install mongohub
 brew cask install postico
 brew cask install postman
+brew cask install redis-app
 brew cask install sourcetree
+brew cask install vagrant
 brew cask install visual-studio-code
 mas install 412448059 # ForkLift
 
@@ -40,7 +41,6 @@ mas install 412448059 # ForkLift
 brew cask install dropbox
 brew cask install google-drive
 brew cask install itsycal
-brew cask install rescuetime
 brew cask install shiori
 mas install 692867256 # Simplenote
 mas install 409183694 # Keynote
