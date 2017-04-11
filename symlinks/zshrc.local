@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # zsh configuration
-DEFAULT_USER="yenbekbay"
+DEFAULT_USER='yenbekbay'
 
 # Synchronize base and local dotfiles
-alias syncdotfiles="RCRC=$HOME/.rcrc.local rcup -v"
+alias syncdotfiles="RCRC=${HOME}/.rcrc.local rcup -v"

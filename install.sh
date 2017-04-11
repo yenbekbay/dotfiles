@@ -64,26 +64,26 @@ brew cleanup
 
 # Set up GPG
 # https://anvilabs.co/blog/setup-gpg-commits/
-echo "** Settings up GPG with Keybase"
+echo '** Settings up GPG with Keybase'
 keybase login
 keybase pgp gen
 
 # Set up SSH
 # https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
-echo "** Setting up SSH"
-ssh-keygen -t rsa -b 4096 -C "ayan.yenb@gmail.com"
+echo '** Setting up SSH'
+ssh-keygen -t rsa -b 4096 -C 'ayan.yenb@gmail.com'
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
 # Open the GitHub settings page
-open "https://github.com/account/keys"
+open 'https://github.com/account/keys'
 
 # Add the SSH key to GitHub
 pbcopy < ~/.ssh/id_rsa.pub
-echo "SSH key copied to clipboard"
-read -p "Press [Enter] key when you're done..."
+echo 'SSH key copied to clipboard'
+read -p 'Press [Enter] key when you'\''re done...' -r
 
 # Add the PGP key to GitHub
 keybase pgp export | pbcopy
-echo "PGP key copied to clipboard"
-read -p "Press [Enter] key when you're done..."
+echo 'PGP key copied to clipboard'
+read -p 'Press [Enter] key when you'\''re done...' -r
