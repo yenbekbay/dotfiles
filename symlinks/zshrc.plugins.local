@@ -13,4 +13,4 @@ zplug 'chriskempson/base16-shell', use:colortest, as:command
 zplug 'peterhurford/up.zsh'
 zplug 'unixorn/docker-helpers.zshplugin'
 zplug 'unixorn/git-extra-commands'
-zplug 'wbinglee/zsh-wakatime'
+# zplug 'wbinglee/zsh-wakatime'
