@@ -22,36 +22,34 @@ brew install cmake
 brew install git-extras
 
 # Install keybase and gpg for signatures
-brew install keybase gnupg2
+brew install keybase
+brew install gnupg2
 
 # Install system utilities
 brew install tree
 brew install wget
 pip install glances
 
-# Install general development tools
+# Install development tools
+brew install ansible
 brew install asciinema
+brew install carthage
+brew install cocoapods
 brew install httpie
 brew install watchman
 gem install bundler
-yarn global add cloc
-yarn global add greenkeeper
-yarn global add npm-check
-yarn global add travis
-yarn global add trymodule
-yarn global add yo
-pip install pylint
-
-# Install iOS and macOS development tools
-# brew install carthage
-# brew install jondot/tap/blade
-# brew install keith/formulae/cocoapods
-# brew install swiftlint
-# brew install thoughtbot/formulae/liftoff
-# gem install cocoapods-playgrounds
-# gem install fastlane
-# gem install synx
+gem install fastlane
+gem install travis
 gem install xcode-install
+npm install -g cloc
+npm install -g code-push-cli
+npm install -g flow-typed
+npm install -g react-native-cli
+npm install -g semantic-release-cli
+npm install -g trymodule
+npm install -g yo
+pip install pylint
+pip install wakatime
 
 # Install apps with brew cask and mas
 source ~/.dotfiles-local/apps.sh
