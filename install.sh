@@ -42,13 +42,8 @@ gem install fastlane
 gem install travis
 gem install xcode-install
 npm install -g cloc
-npm install -g code-push-cli
 npm install -g flow-typed
-npm install -g react-native-cli
-npm install -g semantic-release-cli
 npm install -g trymodule
-npm install -g yo
-pip install pylint
 pip install wakatime
 
 # Install apps with brew cask and mas
