@@ -42,7 +42,6 @@ gem install fastlane
 gem install travis
 gem install xcode-install
 npm install -g cloc
-npm install -g flow-typed
 npm install -g trymodule
 pip install wakatime
 
