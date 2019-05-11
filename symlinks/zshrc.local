@@ -3,6 +3,30 @@
 # zsh configuration
 DEFAULT_USER='yenbekbay'
 
+# Lazy load kubectl completions
+# @see https://github.com/kubernetes/kubernetes/issues/59078#issuecomment-363384825
+function kubectl() {
+  if ! type __start_kubectl >/dev/null 2>&1; then
+    source <(command kubectl completion zsh)
+  fi
+
+  command kubectl "$@"
+}
+
+# Lazy load pharos environment
+function pharos-cluster() {
+  if brew --prefix chpharos &>/dev/null; then
+    # Activate pharos environment
+    source "$(brew --prefix chpharos)/share/chpharos/chpharos.sh"
+    chpharos auto
+  fi
+
+  command pharos-cluster "$@"  
+}
+
+# Activate direnv
+eval "$(direnv hook zsh)"
+
 # Synchronize base and local dotfiles
 alias syncdotfiles="RCRC=${HOME}/.rcrc.local rcup -v"
 
