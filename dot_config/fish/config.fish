@@ -15,3 +15,7 @@ starship init fish | source
 
 # Initialize zoxide (https://github.com/ajeetdsouza/zoxide/)
 zoxide init fish | source
+
+# Initialize volta (https://volta.sh/)
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH
