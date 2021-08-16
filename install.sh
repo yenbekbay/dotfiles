@@ -12,12 +12,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Install chezmoi
 brew install chezmoi
 
-# Install 1Password CLI
-brew install 1password-cli
-
-# Sign into 1Password account
-eval "$(op signin alkafinance.1password.com ayan.yenb@gmail.com)"
-
 # POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 
