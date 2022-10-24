@@ -16,6 +16,16 @@ starship init fish | source
 # Initialize zoxide (https://github.com/ajeetdsouza/zoxide/)
 zoxide init fish | source
 
-# Initialize volta (https://volta.sh/)
-set -gx VOLTA_HOME "$HOME/.volta"
-set -gx PATH "$VOLTA_HOME/bin" $PATH
+# Initialize asdf (https://asdf-vm.com/)
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
+
+# Initialize Google Cloud SDK
+source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
+
+# Add Android Studio environment variables
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export ANDROID_AVD_HOME=$HOME/.android/avd
+
+# tabtab source for packages
+[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
