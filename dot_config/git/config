@@ -1,5 +1,6 @@
 [core]
     pager = delta
+    excludesfile = ~/.gitignore_global
 
 [delta]
     plus-color = "#012800"
