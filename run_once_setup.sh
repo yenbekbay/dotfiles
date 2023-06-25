@@ -18,8 +18,7 @@ fi
 chsh -s "$(which fish)"
 
 # Install fish plugins
-# shellcheck disable=2016
-"$(which fish)" -c 'curl -fsSL https://git.io/fisher | source && fisher install (cat ~/.config/fish/fish_plugins)'
+fisher update
 
 # Install asdf plugins
 asdf plugin add nodejs

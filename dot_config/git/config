@@ -1,27 +1,53 @@
 [core]
-    pager = delta
+    editor = code --wait
     excludesfile = ~/.gitignore_global
+    pager = delta
 
 [delta]
-    plus-color = "#012800"
-    minus-color = "#340001"
-    syntax-theme = Monokai Extended
+    navigate = true
+    syntax-theme = base16
+    true-color = always
 
 [diff]
-    tool = vscode
+    colorMoved = zebra
+    # external = difft
+    tool = difftastic
+
+[difftool]
+    prompt = false
+
+[difftool "difftastic"]
+    cmd = difft $LOCAL $REMOTE
 
 [difftool "vscode"]
     cmd = code --wait --diff $LOCAL $REMOTE
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[init]
+	defaultBranch = main
 
 [interactive]
     diffFilter = delta --color-only
 
 [merge]
+    conflictstyle = diff3
     tool = vscode
 
 [mergetool "vscode"]
     cmd = code --wait $MERGED
 
+[pager]
+    difftool = true
+
+[pull]
+    rebase = true
+
 [user]
-	name = yenbekbay
+	name = Ayan Yenbekbay
 	email = ayan.yenb@gmail.com
+
