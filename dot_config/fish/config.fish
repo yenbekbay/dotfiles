@@ -8,8 +8,8 @@ set -gx HOMEBREW_NO_ENV_HINTS true
 # Starship
 starship init fish | source
 
-# asdf
-source "$(brew --prefix asdf)/libexec/asdf.fish"
+# mise-en-place
+mise activate fish | source
 
 # direnv
 eval (direnv hook fish)
@@ -44,3 +44,6 @@ set -gx PATH "$PNPM_HOME" $PATH
 set -gx ANDROID_HOME ~/Library/Android/sdk
 set -gx ANDROID_SDK_ROOT ~/Library/Android/sdk
 set -gx ANDROID_AVD_HOME ~/.android/avd
+
+# Tailscale
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
