@@ -1,9 +1,8 @@
 add_newline = false
+command_timeout = 1000
 
 [character]
-success_symbol = "[>](bold green)"
-error_symbol = "[x](bold red)"
-vimcmd_symbol = "[<](bold green)"
+disabled = true
 
 [git_commit]
 tag_symbol = " tag "
@@ -52,11 +51,13 @@ symbol = "deno "
 symbol = ".NET "
 
 [directory]
-read_only = " ro"
+truncation_length = 4
 truncate_to_repo = false
+read_only = " ro"
 
 [docker_context]
 symbol = "docker "
+disabled = true
 
 [elixir]
 symbol = "exs "
