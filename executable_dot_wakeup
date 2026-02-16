@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+"$HOME/Library/Scripts/backup.sh"
