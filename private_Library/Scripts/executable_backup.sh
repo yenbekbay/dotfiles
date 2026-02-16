@@ -1,83 +1,94 @@
 #!/usr/bin/env bash
-# Simple backups of ~/Developer and ~/Documents with retention.
+# Daily backups of ~/Developer and ~/Documents (meant to be triggered by SleepWatcher on wake).
 # - Creates timestamped .tar.gz archives in a Drive-synced folder
-# - Excludes only the biggest, safe-to-regenerate junk from Developer
-# - Keeps last N backups per folder
+# - Excludes large, safe-to-regenerate folders from Developer (including .git)
+# - Keeps last N backups for each prefix
+# - Runs at most once per day (stamp file)
 
 set -euo pipefail
 IFS=$'\n\t'
 umask 077
 
 BACKUP_DIR="$HOME/Library/CloudStorage/GoogleDrive-ayan.yenb@gmail.com/My Drive/Backups"
-DATE="$(date +%Y%m%d_%H%M%S)"
-
 KEEP_DEVELOPER=7
 KEEP_DOCUMENTS=30
 
+STAMP="$HOME/.backup_last_run_day"
+TODAY="$(date +%Y-%m-%d)"
+
+# Run only once per day (good for wake-based triggers)
+if [[ -f "$STAMP" && "$(cat "$STAMP")" == "$TODAY" ]]; then
+  exit 0
+fi
+
+DATE="$(date +%Y%m%d_%H%M%S)"
 mkdir -p "$BACKUP_DIR"
 
-compress_tar() {
-  # Usage: compress_tar <Name> <FolderInsideHome>
-  local name="$1"
+backup_tar_gz() {
+  # Usage: backup_tar_gz <Prefix> <FolderUnderHome> [tar options...]
+  local prefix="$1"
   local folder="$2"
-  local out="$BACKUP_DIR/${name}_${DATE}.tar.gz"
+  shift 2
+
+  local out="$BACKUP_DIR/${prefix}_${DATE}.tar.gz"
   local tmp="$out.partial"
+
+  # If we exit early, remove partial file
+  trap 'rm -f -- "$tmp"' RETURN
 
   echo "Creating $out"
 
-  tar -cf - -C "$HOME" "$folder" \
+  tar -cf - -C "$HOME" "$@" "$folder" \
     | pv \
     | pigz > "$tmp"
 
   pigz -t "$tmp"
-  mv -f "$tmp" "$out"
-}
+  mv -f -- "$tmp" "$out"
 
-compress_developer() {
-  local out="$BACKUP_DIR/Developer_${DATE}.tar.gz"
-  local tmp="$out.partial"
-
-  echo "Creating $out"
-
-  tar -cf - -C "$HOME" \
-    --exclude='*/.git' \
-    --exclude='*/.git/*' \
-    --exclude='*/node_modules' \
-    --exclude='*/node_modules/*' \
-    --exclude='*/dist' \
-    --exclude='*/dist/*' \
-    --exclude='*/build' \
-    --exclude='*/build/*' \
-    --exclude='*/.next' \
-    --exclude='*/.next/*' \
-    --exclude='*/.cache' \
-    --exclude='*/.cache/*' \
-    Developer \
-    | pv \
-    | pigz > "$tmp"
-
-  pigz -t "$tmp"
-  mv -f "$tmp" "$out"
+  trap - RETURN
 }
 
 prune_keep_last() {
   # Usage: prune_keep_last <Prefix> <HowManyToKeep>
   local prefix="$1"
   local keep="$2"
+  local n=0
 
-  # Newest first; keep first N, delete the rest
-  ls -1t "$BACKUP_DIR/${prefix}_"*.tar.gz 2>/dev/null \
-    | tail -n +"$((keep + 1))" \
+  # Sort newest-first by filename timestamp (YYYYMMDD_HHMMSS sorts correctly)
+  find "$BACKUP_DIR" -maxdepth 1 -type f -name "${prefix}_*.tar.gz" -print \
+    | LC_ALL=C sort -r \
     | while IFS= read -r f; do
-        echo "Deleting $f"
-        rm -f -- "$f"
+        n=$((n + 1))
+        if (( n > keep )); then
+          echo "Deleting $f"
+          rm -f -- "$f"
+        fi
       done
 }
 
-compress_developer
-compress_tar Documents Documents
+# Developer
+backup_tar_gz Developer Developer \
+  --exclude='Developer/*/.git' \
+  --exclude='Developer/*/.git/*' \
+  --exclude='Developer/*/node_modules' \
+  --exclude='Developer/*/node_modules/*' \
+  --exclude='Developer/*/dist' \
+  --exclude='Developer/*/dist/*' \
+  --exclude='Developer/*/build' \
+  --exclude='Developer/*/build/*' \
+  --exclude='Developer/*/.next' \
+  --exclude='Developer/*/.next/*' \
+  --exclude='Developer/*/.cache' \
+  --exclude='Developer/*/.cache/*'
 
+# Documents
+backup_tar_gz Documents Documents
+
+# Retention
 prune_keep_last Developer "$KEEP_DEVELOPER"
 prune_keep_last Documents "$KEEP_DOCUMENTS"
+
+# Mark success for today (so wake-trigger won't repeat)
+echo "$TODAY" > "$STAMP"
 
 echo "Done."
