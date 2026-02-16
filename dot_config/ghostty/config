@@ -1,0 +1,3 @@
+font-family = "Victor Mono"
+theme = dark:Raycast Dark,light:Raycast Light
+window-save-state = always
