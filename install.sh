@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-# Use the Unofficial Bash Strict Mode: http://redsymbol.net/articles/unofficial-bash-strict-mode/
 set -euo pipefail
+IFS=$'\n\t'
+umask 077
 
 # Install Homebrew
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

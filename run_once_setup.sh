@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-# Use the Unofficial Bash Strict Mode: http://redsymbol.net/articles/unofficial-bash-strict-mode/
 set -euo pipefail
+IFS=$'\n\t'
+umask 077
 
 # Activate Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -20,7 +21,6 @@ chsh -s "$(which fish)"
 # Install fish plugins
 fisher update
 
-# Install asdf plugins
-asdf plugin add nodejs
-asdf plugin add ruby
-asdf plugin-add pnpm
+# Add completions
+mise completion fish >~/.config/fish/completions/mise.fish
+pnpm completion fish >~/.config/fish/completions/pnpm.fish
