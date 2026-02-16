@@ -84,6 +84,7 @@ brew "python@3.9"
 brew "qemu"
 brew "rust"
 brew "shellcheck"
+brew "sleepwatcher", restart_service: :changed
 brew "starship"
 brew "swiftformat"
 brew "telnet"
