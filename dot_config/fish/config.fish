@@ -11,11 +11,7 @@ set -x HOMEBREW_NO_ENV_HINTS 1
 starship init fish | source
 
 # mise-en-place
-if status is-interactive
-  mise activate fish | source
-else
-  mise activate fish --shims | source
-end
+mise activate fish --shims | source
 
 # direnv
 eval (direnv hook fish)
