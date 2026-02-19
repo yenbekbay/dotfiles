@@ -3,7 +3,7 @@
 
 [core]
     editor = code --wait
-    excludesfile = ~/.gitignore_global
+    excludesfile = ~/.config/git/ignore
 
 [diff]
     algorithm = histogram
