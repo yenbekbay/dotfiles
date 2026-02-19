@@ -18,9 +18,7 @@ fi
 # Set fish as the default shell
 chsh -s "$(which fish)"
 
-# Install fish plugins
-fisher update
-
 # Add completions
+chezmoi completion fish > ~/.config/fish/completions/chezmoi.fish
 mise completion fish >~/.config/fish/completions/mise.fish
 pnpm completion fish >~/.config/fish/completions/pnpm.fish
