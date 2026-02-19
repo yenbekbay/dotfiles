@@ -1,15 +1,15 @@
-# github.com/yenbekbay/dotfiles
+# yenbekbay/dotfiles
 
-Ayan Yenbekbay's dotfiles, managed with [`chezmoi`](https://github.com/twpayne/chezmoi).
+```sh
+# Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-Install them with:
+# Activate Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
-    bash -c "bash <(curl -fsSL https://raw.githubusercontent.com/yenbekbay/dotfiles/master/install.sh)"
+# Install packages and apps
+curl -fsSL https://raw.githubusercontent.com/yenbekbay/dotfiles/HEAD/Brewfile | brew bundle install --verbose --file=-
 
-## Credits
-
-Inspired by [Tom Payne's dotfiles](https://github.com/twpayne/dotfiles).
-
-## License
-
-[MIT License](./LICENSE) © Ayan Yenbekbay
+# Initialize chezmoi with the dotfiles repository
+chezmoi init --apply yenbekbay/dotfiles
+```
