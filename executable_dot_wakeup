@@ -1,7 +1,3 @@
 #!/usr/bin/env bash
 
-# SleepWatcher runs with a minimal PATH
-export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-
-# Run backup and log output
 "$HOME/Library/Scripts/backup.sh" >>"$HOME/Library/Logs/backup.log" 2>&1 &

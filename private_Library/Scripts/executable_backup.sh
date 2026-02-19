@@ -38,11 +38,8 @@ backup_tar_gz() {
 
   echo "Creating $out"
 
-  tar -cf - -C "$HOME" "$@" "$folder" \
-    | pv \
-    | pigz > "$tmp"
-
-  pigz -t "$tmp"
+  tar -cf - -C "$HOME" "$@" "$folder" | gzip > "$tmp"
+  gzip -t "$tmp"
   mv -f -- "$tmp" "$out"
 
   trap - RETURN
