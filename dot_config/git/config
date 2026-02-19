@@ -1,52 +1,36 @@
 [core]
     editor = code --wait
     excludesfile = ~/.gitignore_global
-    pager = delta
-
-[delta]
-    navigate = true
-    syntax-theme = base16
-    true-color = always
 
 [diff]
-    colorMoved = zebra
-    # external = difft
-    tool = difftastic
+    algorithm = histogram
+    tool = vscode
 
 [difftool]
     prompt = false
 
-[difftool "difftastic"]
-    cmd = difft $LOCAL $REMOTE
-
 [difftool "vscode"]
     cmd = code --wait --diff $LOCAL $REMOTE
 
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-
 [init]
-	defaultBranch = main
-
-[interactive]
-    diffFilter = delta --color-only
+    defaultBranch = main
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
     tool = vscode
+
+[mergetool]
+    keepBackup = false
 
 [mergetool "vscode"]
     cmd = code --wait $MERGED
 
-[pager]
-    difftool = true
-
 [pull]
     rebase = true
 
+[push]
+    autoSetupRemote = true
+
 [user]
-	name = Ayan Yenbekbay
-	email = ayan.yenb@gmail.com
+    name = Ayan Yenbekbay
+    email = ayan.yenb@gmail.com
