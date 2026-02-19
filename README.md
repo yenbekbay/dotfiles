@@ -11,5 +11,5 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 curl -fsSL https://raw.githubusercontent.com/yenbekbay/dotfiles/HEAD/Brewfile | brew bundle install --verbose --file=-
 
 # Initialize chezmoi with the dotfiles repository
-chezmoi init --apply yenbekbay/dotfiles
+chezmoi init --apply --verbose https://github.com/yenbekbay/dotfiles.git
 ```
