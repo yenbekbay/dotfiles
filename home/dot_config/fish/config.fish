@@ -19,6 +19,10 @@ set -gx FZF_DEFAULT_OPTS --reverse
 zoxide init fish | source
 set -gx _ZO_FZF_OPTS "$FZF_DEFAULT_OPTS --preview='command eza {2..}' --preview-window=bottom"
 
+# pnpm
+set -gx PNPM_HOME ~/Library/pnpm
+set -gx PATH "$PNPM_HOME" $PATH
+
 # java
 set -gx JAVA_HOME /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 
