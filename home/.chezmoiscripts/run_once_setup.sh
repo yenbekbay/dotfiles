@@ -14,8 +14,3 @@ fi
 
 # Set fish as the default shell
 chsh -s "$(which fish)"
-
-# Add completions
-chezmoi completion fish > ~/.config/fish/completions/chezmoi.fish
-mise completion fish >~/.config/fish/completions/mise.fish
-pnpm completion fish >~/.config/fish/completions/pnpm.fish
